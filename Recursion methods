@@ -1,0 +1,83 @@
+
+public class RecursionStaticMethods_Itmer 
+{
+	// method for n!
+	public static double nFactorial(double n)
+	{  double nMinus1Factorial;
+	   if(n == 0)
+	      return ( 1 );
+	   else
+	   {  nMinus1Factorial =  nFactorial(n-1);    
+	         return ( n * nMinus1Factorial);
+	   }
+	}
+	
+	// method for n^x
+	public static double xToN(double x, double n)
+	{ if(n == 0)  // base case
+	      return  1;
+	  else
+	  {
+		  double rp = xToN(x, n-1); // reduced problem (recursion)
+		  double gs = x * rp; // calculate the general solution
+		  return gs; // return the general solution
+	  }
+	  
+	}
+
+	// method for fibonacci sequence
+	public static double fibonacci(double  n)
+	{   if(n == 1 || n == 2) //one of the 2 base cases
+	        return 1;
+		else
+		{  
+			double rp1 = fibonacci(n - 1); // first reduced problem
+			double rp2 = fibonacci(n - 2); // second reduced problem
+			double gs = rp1 + rp2;  // general solution
+			return gs; 
+		}
+	} 
+	
+	// method for 1+2+3 ..... n
+	public static double sumN(double n)
+	{ 
+	   if(n == 0)
+	      return ( 0 );
+	   else
+	   {  
+	
+		  double rp1 = sumN (n - 1);
+		  double gs = n + rp1;
+		  return gs;
+	   }
+	}
+	
+	// method for m + (m + 1), (m + 2) ..... n
+	public static double NtimesMaddOne(double m, double n)
+	{ 
+	   if(m == n)
+	      return ( m );
+	   else
+	   {  
+		  
+		  double rp2 = NtimesMaddOne (m+1 , n);
+		  double gs = m + rp2;
+		  return gs;
+	   }
+	}
+	
+	// method for The greatest common divisor.
+	public static double gCD(double m, double n)
+	{ 
+		if (n == 0)
+		{
+			return m;
+		}
+		else
+		{
+			double gs = gCD(n, m % n);
+			return gs;
+			
+		}
+	}
+}
